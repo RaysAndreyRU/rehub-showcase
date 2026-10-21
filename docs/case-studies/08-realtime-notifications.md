@@ -23,6 +23,31 @@ The connection protocol includes a `ready` acknowledgement before the socket is 
 
 Realtime can be replaced with a disabled gateway through module configuration, retaining the same service dependency when the feature is off.
 
+## Public durable-first sample
+
+The runnable `src/notifications` slice reduces the scenario to its essential guarantee:
+
+```mermaid
+sequenceDiagram
+    participant UseCase as CreateNotification
+    participant Store as Durable repository
+    participant Realtime as Realtime port
+    participant Monitor as Failure reporter
+
+    UseCase->>Store: Create notification
+    Store-->>UseCase: Persisted record
+    UseCase->>Realtime: Best-effort delivery
+    alt delivered
+        Realtime-->>UseCase: Success
+    else transport unavailable
+        Realtime-->>UseCase: Error
+        UseCase->>Monitor: Capture delivery failure
+        UseCase-->>UseCase: Keep durable result
+    end
+```
+
+Persistence failure remains fatal because no recoverable notification exists. Realtime failure is reported but returned as `DEFERRED`, allowing clients to recover through the persisted list after reconnecting.
+
 ## Trade-offs
 
 - Socket delivery is advisory; the persisted notification list remains the recovery path.

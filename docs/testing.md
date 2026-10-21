@@ -24,8 +24,14 @@ Tests cover externally visible behavior:
 - the block expires according to TTL;
 - successful authentication resets failed-attempt state;
 - a successful event retains a safe actor snapshot.
+- red-flag operators produce deterministic candidates;
+- inactive, unrelated, expired, and future measurements are ignored;
+- cooldown suppresses repeated candidates;
+- notifications are persisted before realtime delivery;
+- realtime failure preserves the durable result and is reported;
+- persistence failure prevents an invalid realtime event.
 
-The adapters are in-memory test doubles. Production-oriented ports would be implemented with a durable audit repository and an atomic Redis counter operation.
+The adapters are in-memory test doubles. Production-oriented ports would use durable repositories, atomic Redis operations, and an authenticated Socket.IO gateway.
 
 ## Commands
 

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Red-flag Rule Evaluation",
+  "description": "Follow one clinical measurement from rule selection to an auditable event candidate.",
+  "ref": "main",
+  "steps": [
+    {
+      "directory": "src/red-flag-engine",
+      "title": "Reference Engine Boundary",
+      "description": "This public slice makes policy semantics executable without copying private services, persistence, or medical data."
+    },
+    {
+      "file": "src/red-flag-engine/domain/red-flag.types.ts",
+      "pattern": "export type RedFlagRule =",
+      "title": "Versionable Rule Contract",
+      "description": "A rule carries metric, operator, threshold, observation window, cooldown, severity, recommendation, and automatic-action intent."
+    },
+    {
+      "file": "src/red-flag-engine/application/evaluate-red-flags.ts",
+      "pattern": "execute(input: EvaluateRedFlagsInput)",
+      "title": "Deterministic Evaluation",
+      "description": "Only active rules outside cooldown participate. The evaluator selects the latest eligible patient measurement and emits no side effects."
+    },
+    {
+      "file": "src/red-flag-engine/application/evaluate-red-flags.ts",
+      "pattern": "private matches",
+      "title": "Explicit Operators",
+      "description": "All six published operators are handled exhaustively, keeping comparison behavior visible and testable."
+    },
+    {
+      "file": "test/evaluate-red-flags.spec.ts",
+      "pattern": "describe('EvaluateRedFlags'",
+      "title": "Behavior Matrix",
+      "description": "Tests cover operator boundaries, time windows, patient scope, latest-value selection, inactive rules, future observations, and cooldown."
+    }
+  ]
+}

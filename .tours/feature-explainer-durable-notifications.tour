@@ -1,0 +1,37 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Durable-first Realtime Notifications",
+  "description": "A tour of notification persistence and best-effort realtime delivery.",
+  "ref": "main",
+  "steps": [
+    {
+      "directory": "src/notifications",
+      "title": "Notification Boundary",
+      "description": "Domain types, persistence, realtime delivery, and failure reporting are separated so each failure mode has an explicit policy."
+    },
+    {
+      "file": "src/notifications/ports/notification-repository.port.ts",
+      "pattern": "export interface NotificationRepositoryPort",
+      "title": "Durable Source of Truth",
+      "description": "The repository creates the recoverable notification record before any transient transport is attempted."
+    },
+    {
+      "file": "src/notifications/application/create-notification.use-case.ts",
+      "pattern": "async execute",
+      "title": "Persist, Then Deliver",
+      "description": "Persistence errors remain fatal. Realtime errors are captured and converted to a DEFERRED delivery result without discarding the stored record."
+    },
+    {
+      "file": "src/notifications/adapters/in-memory-notification.adapters.ts",
+      "pattern": "export class InMemoryRealtimeNotifications",
+      "title": "Controllable Transport Failure",
+      "description": "The demonstration adapter can be made unavailable, allowing the degraded path to be tested without Socket.IO or Redis."
+    },
+    {
+      "file": "test/create-notification.use-case.spec.ts",
+      "pattern": "describe('CreateNotification'",
+      "title": "Ordering and Failure Tests",
+      "description": "Tests prove persistence happens first, transport failure preserves data, and persistence failure prevents a misleading realtime event."
+    }
+  ]
+}

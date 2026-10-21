@@ -73,30 +73,28 @@ Read the full [architecture overview](docs/architecture.md) and [role-oriented u
 
 Start with the [case study index](docs/case-studies/README.md).
 
-## Public vertical slice
+## Public vertical slices
 
-The runnable sample reconstructs the login-security boundary using ports instead of production infrastructure:
+The repository contains three runnable, independently testable examples:
 
 ```text
-src/login-security/
-├── adapters/in-memory-security.adapters.ts
-├── application/record-login-outcome.use-case.ts
-├── domain/login-security.types.ts
-└── ports/
-    ├── login-attempts.port.ts
-    └── security-audit.port.ts
+src/
+├── login-security/     Durable login audit and expiring attempt state
+├── red-flag-engine/    Deterministic policy evaluation and cooldown
+└── notifications/      Durable-first creation with best-effort realtime
 ```
 
-It demonstrates:
+Together they demonstrate:
 
-- durable audit intent for successful and failed logins;
-- a separate expiring store for counters and temporary blocks;
-- threshold and TTL behavior;
-- reset after successful authentication;
+- separation of durable security audit from expiring counters and blocks;
+- deterministic evaluation of six comparison operators over time-windowed measurements;
+- suppression of duplicate red-flag candidates during cooldown;
+- durable notification persistence before realtime delivery;
+- graceful degradation when the realtime transport is unavailable;
 - dependency inversion and behavior-focused tests;
-- a contract that can be backed by PostgreSQL and Redis without coupling the use case to either technology.
+- infrastructure ports that can be backed by PostgreSQL, Redis, and Socket.IO.
 
-The production implementation uses NestJS guards/services, Prisma-backed security logs, and Redis-backed attempt state. Exact schema, keys, endpoints, and configuration are intentionally omitted.
+The production implementation uses NestJS services and guards, Prisma repositories, Redis state, and Socket.IO gateways. The red-flag evaluator in this repository is a reference implementation of the published rule semantics, not a copy or claim of identical production execution code. Exact schema, keys, endpoints, and configuration are intentionally omitted.
 
 ## Run the sample
 

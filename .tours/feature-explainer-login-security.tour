@@ -1,0 +1,53 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Login Security Vertical Slice",
+  "description": "A guided tour of durable login auditing and temporary IP throttling.",
+  "ref": "main",
+  "steps": [
+    {
+      "directory": "src/login-security",
+      "title": "Security Boundary",
+      "description": "This compact slice separates domain types, application orchestration, infrastructure ports, and demonstration adapters. It mirrors the responsibilities of the private implementation without copying production code."
+    },
+    {
+      "file": "src/login-security/domain/login-security.types.ts",
+      "line": 1,
+      "title": "Explicit Outcomes and Audit Events",
+      "description": "Success and failure are a discriminated union, so successful audit events require an actor while failed events can retain only a safe identifier and source IP."
+    },
+    {
+      "file": "src/login-security/ports/security-audit.port.ts",
+      "line": 3,
+      "title": "Durable Audit Port",
+      "description": "The application asks only for append behavior. A production adapter can use Prisma/PostgreSQL while tests keep a deterministic in-memory event list."
+    },
+    {
+      "file": "src/login-security/ports/login-attempts.port.ts",
+      "line": 7,
+      "title": "Expiring Enforcement Port",
+      "description": "Blocking and counters have TTL semantics unlike the audit history. Keeping this contract separate allows Redis to own atomic increments and expiry."
+    },
+    {
+      "file": "src/login-security/application/record-login-outcome.use-case.ts",
+      "line": 11,
+      "title": "Application Orchestration",
+      "description": "The use case records both outcomes, resets failures on success, and returns an explicit decision after a failure. The caller can reject already blocked IPs through the preflight check."
+    },
+    {
+      "file": "src/login-security/adapters/in-memory-security.adapters.ts",
+      "line": 21,
+      "title": "TTL Demonstration Adapter",
+      "description": "The adapter models attempt expiry and block expiry without a network dependency. Production code must implement registerFailure atomically under concurrent requests."
+    },
+    {
+      "file": "test/record-login-outcome.use-case.spec.ts",
+      "line": 26,
+      "title": "Behavior-focused Verification",
+      "description": "Tests verify audit creation, threshold blocking, TTL recovery, and successful reset through public behavior rather than private method structure."
+    },
+    {
+      "title": "Next Step",
+      "description": "Read docs/case-studies/05-login-audit-and-ip-throttling.md for the production mapping, operational trade-offs, and hardening considerations."
+    }
+  ]
+}

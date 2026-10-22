@@ -1,5 +1,7 @@
 # Case Study: Contract-first Mock-to-API Migration
 
+[English] | [Русский](07-contract-first-frontend.ru.md)
+
 ## Problem
 
 The admin product had to progress before every backend endpoint was available. Page-specific mock data would make later integration expensive and allow the mock shape to diverge from the production contract.

@@ -67,16 +67,16 @@ Read the full [architecture overview](docs/architecture.md) and [role-oriented u
 
 | Case study | Engineering focus |
 | --- | --- |
-| [Role-oriented platform boundaries](docs/case-studies/01-role-oriented-platform.md) | One domain model exposed through patient, doctor, and administrator workflows. |
-| [Rehabilitation program lifecycle](docs/case-studies/02-rehabilitation-program-lifecycle.md) | Templates, assignments, planned and performed sessions, and progress. |
-| [Diary and progress projections](docs/case-studies/03-diary-and-progress.md) | Turning exercise facts and patient observations into doctor-facing context. |
-| [Clinical policies and event lifecycles](docs/case-studies/04-clinical-policies.md) | Red-flag and recommendation configuration without presenting software as a diagnosis engine. |
-| [Login audit and IP throttling](docs/case-studies/05-login-audit-and-ip-throttling.md) | Durable security events combined with expiring Redis counters. |
-| [Reports, exports, and side effects](docs/case-studies/06-reports-and-exports.md) | Report lifecycle, PDF data, attachments, email delivery, and notifications. |
-| [Contract-first mock-to-API migration](docs/case-studies/07-contract-first-frontend.md) | Zod contracts, React Query, MSW, and incremental backend integration. |
-| [Redis-backed realtime notifications](docs/case-studies/08-realtime-notifications.md) | Authenticated sockets, per-user connections, acknowledgements, and horizontal scale. |
-| [Transactional push delivery](docs/case-studies/09-transactional-push-delivery.md) | PostgreSQL outbox, BullMQ recovery, target-scoped retries, and Firebase delivery. |
-| [Privacy-aware PWA and web push](docs/case-studies/10-privacy-aware-pwa.md) | One service worker, conservative caching, explicit permission, and end-to-end deduplication. |
+| [Role-oriented platform boundaries](docs/case-studies/01-role-oriented-platform.md) ([RU](docs/case-studies/01-role-oriented-platform.ru.md)) | One domain model exposed through patient, doctor, and administrator workflows. |
+| [Rehabilitation program lifecycle](docs/case-studies/02-rehabilitation-program-lifecycle.md) ([RU](docs/case-studies/02-rehabilitation-program-lifecycle.ru.md)) | Templates, assignments, planned and performed sessions, and progress. |
+| [Diary and progress projections](docs/case-studies/03-diary-and-progress.md) ([RU](docs/case-studies/03-diary-and-progress.ru.md)) | Turning exercise facts and patient observations into doctor-facing context. |
+| [Clinical policies and event lifecycles](docs/case-studies/04-clinical-policies.md) ([RU](docs/case-studies/04-clinical-policies.ru.md)) | Red-flag and recommendation configuration without presenting software as a diagnosis engine. |
+| [Login audit and IP throttling](docs/case-studies/05-login-audit-and-ip-throttling.md) ([RU](docs/case-studies/05-login-audit-and-ip-throttling.ru.md)) | Durable security events combined with expiring Redis counters. |
+| [Reports, exports, and side effects](docs/case-studies/06-reports-and-exports.md) ([RU](docs/case-studies/06-reports-and-exports.ru.md)) | Report lifecycle, PDF data, attachments, email delivery, and notifications. |
+| [Contract-first mock-to-API migration](docs/case-studies/07-contract-first-frontend.md) ([RU](docs/case-studies/07-contract-first-frontend.ru.md)) | Zod contracts, React Query, MSW, and incremental backend integration. |
+| [Redis-backed realtime notifications](docs/case-studies/08-realtime-notifications.md) ([RU](docs/case-studies/08-realtime-notifications.ru.md)) | Authenticated sockets, per-user connections, acknowledgements, and horizontal scale. |
+| [Transactional push delivery](docs/case-studies/09-transactional-push-delivery.md) ([RU](docs/case-studies/09-transactional-push-delivery.ru.md)) | PostgreSQL outbox, BullMQ recovery, target-scoped retries, and Firebase delivery. |
+| [Privacy-aware PWA and web push](docs/case-studies/10-privacy-aware-pwa.md) ([RU](docs/case-studies/10-privacy-aware-pwa.ru.md)) | One service worker, conservative caching, explicit permission, and end-to-end deduplication. |
 
 Start with the [case study index](docs/case-studies/README.md).
 

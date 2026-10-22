@@ -119,4 +119,4 @@ flowchart TB
 - Automated test depth is uneven across repositories; the public sample has its own strict, small quality gate.
 - Push processing is at-least-once: generation and lease controls prevent stale completion, while frontend delivery keys reduce duplicate presentation.
 
-Related deep dives: [transactional push delivery](case-studies/09-transactional-push-delivery.md) and [privacy-aware PWA](case-studies/10-privacy-aware-pwa.md).
+Related deep dives: transactional push delivery ([EN](case-studies/09-transactional-push-delivery.md) · [RU](case-studies/09-transactional-push-delivery.ru.md)) and privacy-aware PWA ([EN](case-studies/10-privacy-aware-pwa.md) · [RU](case-studies/10-privacy-aware-pwa.ru.md)).

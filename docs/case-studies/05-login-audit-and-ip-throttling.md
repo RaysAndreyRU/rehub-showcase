@@ -1,5 +1,7 @@
 # Case Study: Login Audit and Temporary IP Throttling
 
+[English] | [Русский](05-login-audit-and-ip-throttling.ru.md)
+
 ## Problem
 
 Authentication needs two different kinds of state: a durable record for investigation and short-lived counters for abuse control. Storing both in one database either makes every login expensive or gives temporary data an unnecessarily long lifetime.

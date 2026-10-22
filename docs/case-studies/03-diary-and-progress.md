@@ -1,5 +1,7 @@
 # Case Study: Diary and Progress Projections
 
+[English] | [Русский](03-diary-and-progress.ru.md)
+
 ## Problem
 
 Exercise completion alone does not tell a doctor how a patient responded. Rehabilitation review also needs pain, perceived effort, range-of-motion context, observations, missed sessions, and trends over time.

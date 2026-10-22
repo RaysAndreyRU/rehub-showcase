@@ -1,5 +1,7 @@
 # Case Study: Rehabilitation Program Lifecycle
 
+[English] | [Русский](02-rehabilitation-program-lifecycle.ru.md)
+
 ## Problem
 
 A reusable clinical program is not the same entity as the program a particular patient executes. Templates need phases and exercise policies, while assignments need dates, statuses, planned sessions, performed facts, and patient-specific state.

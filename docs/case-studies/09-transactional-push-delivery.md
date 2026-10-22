@@ -1,5 +1,7 @@
 # Case Study: Transactional Push Delivery
 
+[English](09-transactional-push-delivery.md) | [Русский](09-transactional-push-delivery.ru.md)
+
 ## Problem
 
 A domain event can be persisted successfully while an immediate call to a push provider or queue fails. Reversing the order only moves the inconsistency: a push may be sent for a notification that never committed.

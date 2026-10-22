@@ -55,18 +55,18 @@ Backend разделён по доменам и использует путь `c
 
 ## Главные технические кейсы
 
-1. Ролевые границы пациентского, врачебного и административного контуров.
-2. Жизненный цикл реабилитационной программы: шаблон → назначение → плановые и выполненные сессии → прогресс.
-3. Дневник пациента и формирование контекста для врача.
-4. Правила red flags и рекомендаций с отдельным жизненным циклом событий.
-5. Аудит входов, Redis-счётчики попыток и временная блокировка IP.
-6. Отчёты, подготовка данных для PDF, вложения, экспорт, email и уведомления.
-7. Переход frontend с MSW-моков на реальный API без замены UI-контрактов.
-8. Авторизованные realtime-уведомления через Socket.IO и Redis adapter.
-9. Надёжная push-доставка через transactional outbox, BullMQ и Firebase с повтором только временно упавших устройств.
-10. Privacy-aware PWA: единый service worker, безопасная граница кэша, явное разрешение и дедупликация push.
+1. [Ролевые границы платформы](docs/case-studies/01-role-oriented-platform.ru.md) ([EN](docs/case-studies/01-role-oriented-platform.md)).
+2. [Жизненный цикл реабилитационной программы](docs/case-studies/02-rehabilitation-program-lifecycle.ru.md) ([EN](docs/case-studies/02-rehabilitation-program-lifecycle.md)).
+3. [Дневник и проекции прогресса](docs/case-studies/03-diary-and-progress.ru.md) ([EN](docs/case-studies/03-diary-and-progress.md)).
+4. [Клинические политики и жизненный цикл событий](docs/case-studies/04-clinical-policies.ru.md) ([EN](docs/case-studies/04-clinical-policies.md)).
+5. [Аудит входов и временное ограничение по IP](docs/case-studies/05-login-audit-and-ip-throttling.ru.md) ([EN](docs/case-studies/05-login-audit-and-ip-throttling.md)).
+6. [Отчёты, экспорт и внешние эффекты](docs/case-studies/06-reports-and-exports.ru.md) ([EN](docs/case-studies/06-reports-and-exports.md)).
+7. [Contract-first переход от mock к API](docs/case-studies/07-contract-first-frontend.ru.md) ([EN](docs/case-studies/07-contract-first-frontend.md)).
+8. [Realtime-уведомления на Redis](docs/case-studies/08-realtime-notifications.ru.md) ([EN](docs/case-studies/08-realtime-notifications.md)).
+9. [Надёжная транзакционная push-доставка](docs/case-studies/09-transactional-push-delivery.ru.md) через outbox, BullMQ и Firebase с повтором только временно упавших устройств.
+10. [PWA и Web Push с учётом приватности](docs/case-studies/10-privacy-aware-pwa.ru.md): единый service worker, безопасная граница кэша, явное разрешение и дедупликация push.
 
-Подробные разборы: [transactional push delivery](docs/case-studies/09-transactional-push-delivery.md) и [privacy-aware PWA](docs/case-studies/10-privacy-aware-pwa.md).
+Все разборы доступны на русском и английском языках; переключатель языка расположен в начале каждого документа.
 
 ## Публичные примеры кода
 

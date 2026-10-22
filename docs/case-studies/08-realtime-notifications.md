@@ -1,5 +1,7 @@
 # Case Study: Redis-backed Realtime Notifications
 
+[English] | [Русский](08-realtime-notifications.ru.md)
+
 ## Problem
 
 Reports, patient requests, security events, assignments, and clinical alerts can change while an administrator is online. Polling every list wastes resources, but an in-memory socket map fails as soon as the API runs on more than one instance.

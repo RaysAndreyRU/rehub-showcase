@@ -1,5 +1,7 @@
 # Case Study: Reports, Exports, and Side Effects
 
+[English] | [Русский](06-reports-and-exports.ru.md)
+
 ## Problem
 
 A rehabilitation report is both structured clinical data and a deliverable. It needs relational ownership, editable lifecycle state, attachments, a PDF representation, email delivery, and operational notifications.

@@ -1,5 +1,7 @@
 # Case Study: Role-oriented Platform Boundaries
 
+[English] | [Русский](01-role-oriented-platform.ru.md)
+
 ## Problem
 
 A rehabilitation platform exposes the same underlying treatment process differently to patients, doctors, and administrators. A single screen model would either leak privileged operations or force every client to understand the entire domain.

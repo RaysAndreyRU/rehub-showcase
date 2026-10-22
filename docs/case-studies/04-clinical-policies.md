@@ -1,5 +1,7 @@
 # Case Study: Clinical Policies and Event Lifecycles
 
+[English] | [Русский](04-clinical-policies.ru.md)
+
 ## Problem
 
 Administrators need to maintain risk and recommendation policies without hardcoding every threshold in UI components. Doctors need events they can acknowledge and resolve, not an opaque binary alert.

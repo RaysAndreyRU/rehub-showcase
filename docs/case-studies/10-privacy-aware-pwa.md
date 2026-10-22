@@ -1,5 +1,7 @@
 # Case Study: Privacy-aware PWA and Web Push
 
+[English](10-privacy-aware-pwa.md) | [Русский](10-privacy-aware-pwa.ru.md)
+
 ## Problem
 
 Patients and doctors benefit from an installable application and timely notifications, but a conventional offline-first strategy can be unsafe for authenticated rehabilitation data. A service worker that indiscriminately caches pages or API responses may expose stale private information after logout or account switching.

@@ -24,16 +24,16 @@ flowchart LR
 
 ## Deep dives
 
-1. [Role-oriented platform boundaries](01-role-oriented-platform.md)
-2. [Rehabilitation program lifecycle](02-rehabilitation-program-lifecycle.md)
-3. [Diary and progress projections](03-diary-and-progress.md)
-4. [Clinical policies and event lifecycles](04-clinical-policies.md)
-5. [Login audit and IP throttling](05-login-audit-and-ip-throttling.md)
-6. [Reports, exports, and side effects](06-reports-and-exports.md)
-7. [Contract-first mock-to-API migration](07-contract-first-frontend.md)
-8. [Redis-backed realtime notifications](08-realtime-notifications.md)
-9. [Transactional push delivery](09-transactional-push-delivery.md)
-10. [Privacy-aware PWA and web push](10-privacy-aware-pwa.md)
+1. Role-oriented platform boundaries — [EN](01-role-oriented-platform.md) · [RU](01-role-oriented-platform.ru.md)
+2. Rehabilitation program lifecycle — [EN](02-rehabilitation-program-lifecycle.md) · [RU](02-rehabilitation-program-lifecycle.ru.md)
+3. Diary and progress projections — [EN](03-diary-and-progress.md) · [RU](03-diary-and-progress.ru.md)
+4. Clinical policies and event lifecycles — [EN](04-clinical-policies.md) · [RU](04-clinical-policies.ru.md)
+5. Login audit and IP throttling — [EN](05-login-audit-and-ip-throttling.md) · [RU](05-login-audit-and-ip-throttling.ru.md)
+6. Reports, exports, and side effects — [EN](06-reports-and-exports.md) · [RU](06-reports-and-exports.ru.md)
+7. Contract-first mock-to-API migration — [EN](07-contract-first-frontend.md) · [RU](07-contract-first-frontend.ru.md)
+8. Redis-backed realtime notifications — [EN](08-realtime-notifications.md) · [RU](08-realtime-notifications.ru.md)
+9. Transactional push delivery — [EN](09-transactional-push-delivery.md) · [RU](09-transactional-push-delivery.ru.md)
+10. Privacy-aware PWA and web push — [EN](10-privacy-aware-pwa.md) · [RU](10-privacy-aware-pwa.ru.md)
 
 ## Reading rule
 

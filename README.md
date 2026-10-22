@@ -40,7 +40,7 @@ The product surface is split across a multi-role Next.js application, a dedicate
 
 ```mermaid
 flowchart LR
-    Patient[Patient] --> Web[Multi-role Next.js app]
+    Patient[Patient] --> Web[Multi-role Next.js PWA]
     Doctor[Doctor] --> Web
     Admin[Administrator] --> AdminUI[Next.js admin panel]
 
@@ -50,6 +50,11 @@ flowchart LR
     API --> Redis[(Redis)]
     API --> Storage[MinIO / object storage]
     API --> Realtime[Socket.IO notifications]
+    API --> Outbox[(Notification outbox)]
+    Outbox --> Queue[BullMQ / Redis]
+    Queue --> PushWorker[Push worker]
+    PushWorker --> FCM[Firebase Cloud Messaging]
+    FCM --> Web
     API --> External[Email, SMS and optional AI services]
     Realtime --> Redis
 ```
@@ -70,6 +75,8 @@ Read the full [architecture overview](docs/architecture.md) and [role-oriented u
 | [Reports, exports, and side effects](docs/case-studies/06-reports-and-exports.md) | Report lifecycle, PDF data, attachments, email delivery, and notifications. |
 | [Contract-first mock-to-API migration](docs/case-studies/07-contract-first-frontend.md) | Zod contracts, React Query, MSW, and incremental backend integration. |
 | [Redis-backed realtime notifications](docs/case-studies/08-realtime-notifications.md) | Authenticated sockets, per-user connections, acknowledgements, and horizontal scale. |
+| [Transactional push delivery](docs/case-studies/09-transactional-push-delivery.md) | PostgreSQL outbox, BullMQ recovery, target-scoped retries, and Firebase delivery. |
+| [Privacy-aware PWA and web push](docs/case-studies/10-privacy-aware-pwa.md) | One service worker, conservative caching, explicit permission, and end-to-end deduplication. |
 
 Start with the [case study index](docs/case-studies/README.md).
 
@@ -116,9 +123,10 @@ npm run check
 
 | Area | Technologies |
 | --- | --- |
-| Main application | Next.js, React, TypeScript, React Query, Zod, NextAuth |
+| Main application | Next.js, React, TypeScript, React Query, Zod, NextAuth, PWA service worker |
 | Admin panel | Next.js, React, TypeScript, React Query, React Hook Form, Zod, MSW |
-| Backend | NestJS, Prisma, PostgreSQL, Redis, Socket.IO |
+| Backend | NestJS, Prisma, PostgreSQL, Redis, BullMQ, Socket.IO, Firebase Admin |
+| Push delivery | Transactional outbox, BullMQ workers, Firebase Cloud Messaging, Web Push |
 | Storage and output | MinIO-compatible storage, React PDF, spreadsheet exports |
 | Delivery | Docker, GitHub Actions |
 | Public sample | TypeScript, Vitest |

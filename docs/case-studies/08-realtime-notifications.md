@@ -58,3 +58,5 @@ Persistence failure remains fatal because no recoverable notification exists. Re
 ## Engineering signal
 
 The design separates durable notification state from best-effort realtime transport and supports horizontal API scaling.
+
+Realtime is only one delivery plane. Background delivery has a different failure model and uses a PostgreSQL outbox, BullMQ workers, and Firebase as described in [Transactional push delivery](09-transactional-push-delivery.md). The browser-side boundary is covered in [Privacy-aware PWA and web push](10-privacy-aware-pwa.md).

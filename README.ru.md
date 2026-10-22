@@ -25,13 +25,13 @@ Rehub начинался как дипломный проект, а затем �
 - Врач ведёт пациентов, назначает программы, анализирует дневники и динамику, готовит отчёты.
 - Администратор управляет справочниками, упражнениями, шаблонами программ, правилами рисков, рекомендациями, аналитикой, отчётами и безопасностью.
 
-Система разделена на многоролевое Next.js-приложение, отдельную административную панель, доменно-модульный NestJS backend и самостоятельную документацию.
+Система разделена на многоролевое Next.js PWA, отдельную административную панель, доменно-модульный NestJS backend и самостоятельную документацию.
 
 ## Архитектура
 
 ```mermaid
 flowchart LR
-    Patient[Пациент] --> Web[Основное Next.js-приложение]
+    Patient[Пациент] --> Web[Основное Next.js PWA]
     Doctor[Врач] --> Web
     Admin[Администратор] --> AdminUI[Next.js admin panel]
     Web --> API[NestJS API]
@@ -40,6 +40,11 @@ flowchart LR
     API --> Redis[(Redis)]
     API --> Storage[MinIO / файлы]
     API --> WS[Socket.IO]
+    API --> Outbox[(Notification outbox)]
+    Outbox --> Queue[BullMQ / Redis]
+    Queue --> PushWorker[Push worker]
+    PushWorker --> FCM[Firebase Cloud Messaging]
+    FCM --> Web
     API --> External[Email, SMS, внешние сервисы]
     WS --> Redis
 ```
@@ -58,6 +63,10 @@ Backend разделён по доменам и использует путь `c
 6. Отчёты, подготовка данных для PDF, вложения, экспорт, email и уведомления.
 7. Переход frontend с MSW-моков на реальный API без замены UI-контрактов.
 8. Авторизованные realtime-уведомления через Socket.IO и Redis adapter.
+9. Надёжная push-доставка через transactional outbox, BullMQ и Firebase с повтором только временно упавших устройств.
+10. Privacy-aware PWA: единый service worker, безопасная граница кэша, явное разрешение и дедупликация push.
+
+Подробные разборы: [transactional push delivery](docs/case-studies/09-transactional-push-delivery.md) и [privacy-aware PWA](docs/case-studies/10-privacy-aware-pwa.md).
 
 ## Публичные примеры кода
 

@@ -6,7 +6,7 @@ These notes were reconstructed from a focused review of the private Rehub backen
 
 ```mermaid
 flowchart LR
-    Patient --> MainWeb[Main Next.js app]
+    Patient --> MainWeb[Main Next.js PWA]
     Doctor --> MainWeb
     Admin --> AdminWeb[Admin Next.js app]
     MainWeb --> API[NestJS API]
@@ -15,6 +15,11 @@ flowchart LR
     API --> Redis[(Redis)]
     API --> Files[Object storage]
     API --> Notify[Realtime and external notifications]
+    API --> Outbox[(Push outbox)]
+    Outbox --> Queue[BullMQ / Redis]
+    Queue --> Worker[Push worker]
+    Worker --> FCM[Firebase]
+    FCM --> MainWeb
 ```
 
 ## Deep dives
@@ -27,6 +32,8 @@ flowchart LR
 6. [Reports, exports, and side effects](06-reports-and-exports.md)
 7. [Contract-first mock-to-API migration](07-contract-first-frontend.md)
 8. [Redis-backed realtime notifications](08-realtime-notifications.md)
+9. [Transactional push delivery](09-transactional-push-delivery.md)
+10. [Privacy-aware PWA and web push](10-privacy-aware-pwa.md)
 
 ## Reading rule
 

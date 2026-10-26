@@ -78,6 +78,7 @@ Read the full [architecture overview](docs/architecture.md) and [role-oriented u
 | [Transactional push delivery](docs/case-studies/09-transactional-push-delivery.md) ([RU](docs/case-studies/09-transactional-push-delivery.ru.md)) | PostgreSQL outbox, BullMQ recovery, target-scoped retries, and Firebase delivery. |
 | [Privacy-aware PWA and web push](docs/case-studies/10-privacy-aware-pwa.md) ([RU](docs/case-studies/10-privacy-aware-pwa.ru.md)) | One service worker, conservative caching, explicit permission, and end-to-end deduplication. |
 | [Brownfield maintenance and safe migrations](docs/case-studies/11-brownfield-maintenance-and-safe-migrations.md) ([RU](docs/case-studies/11-brownfield-maintenance-and-safe-migrations.ru.md)) | Cross-surface compatibility, expand–migrate–contract rollouts, backfills, recovery, and explicit modernization limits. |
+| [Production quality gates](docs/case-studies/12-production-quality-gates.md) ([RU](docs/case-studies/12-production-quality-gates.ru.md)) | Backend migration safety, frontend browser tests, diagnostic artifacts, and gated Docker publishing. |
 
 Start with the [case study index](docs/case-studies/README.md).
 
@@ -120,6 +121,20 @@ npm run check
 | `npm run typecheck` | Check strict TypeScript contracts. |
 | `npm run check` | Run the complete local quality gate. |
 
+## Verified testing and delivery
+
+Each deployable repository now has an automated GitHub Actions pipeline. The backend validates its complete Prisma migration history against a clean PostgreSQL instance before building API, migration, and Prisma Studio images. The main web and admin applications run type checks, unit or contract tests, production builds, and Playwright browser scenarios before stage or production images can be published.
+
+Snapshot verified on 2026-10-26:
+
+| Surface | Automated evidence | Delivery gate |
+| --- | --- | --- |
+| Backend | 73 tests across 29 suites plus a clean-database migration smoke test | API, migration, and Prisma Studio images depend on both quality and migration jobs. |
+| Main web | 43 unit/contract tests and 7 Chromium E2E scenarios | Stage and production images depend on quality and E2E jobs. |
+| Admin | 16 unit tests and 5 Chromium E2E scenarios | Stage and production images depend on quality and E2E jobs. |
+
+The browser suites preserve JUnit results, HTML reports, traces, screenshots, and video when useful for failure analysis. Counts are a dated evidence snapshot, not a claim of platform-wide coverage. See [Testing and Delivery](docs/testing.md) for the test boundaries and [the production quality-gates case study](docs/case-studies/12-production-quality-gates.md) for the pipeline design.
+
 ## Technology map
 
 | Area | Technologies |
@@ -129,7 +144,7 @@ npm run check
 | Backend | NestJS, Prisma, PostgreSQL, Redis, BullMQ, Socket.IO, Firebase Admin |
 | Push delivery | Transactional outbox, BullMQ workers, Firebase Cloud Messaging, Web Push |
 | Storage and output | MinIO-compatible storage, React PDF, spreadsheet exports |
-| Delivery | Docker, GitHub Actions |
+| Delivery | Docker, GitHub Actions, Playwright, clean-database migration smoke tests |
 | Public sample | TypeScript, Vitest |
 
 ## Disclosure boundary

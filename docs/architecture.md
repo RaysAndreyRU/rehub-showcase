@@ -116,7 +116,7 @@ flowchart TB
 - The backend grew from a graduation project and contains both newer domain modules and older integration surfaces.
 - The main web application has large route components and mixed legacy/new boundaries.
 - Backend integration progressed incrementally, so mock and live data paths coexist in parts of the frontends.
-- Automated test depth is uneven across repositories; the public sample has its own strict, small quality gate.
+- Test depth still varies by module, but every deployable repository now has an automated quality gate; both frontends include browser-level critical-path coverage, and the backend validates migrations against a clean database.
 - Push processing is at-least-once: generation and lease controls prevent stale completion, while frontend delivery keys reduce duplicate presentation.
 
-Related deep dives: transactional push delivery ([EN](case-studies/09-transactional-push-delivery.md) · [RU](case-studies/09-transactional-push-delivery.ru.md)) and privacy-aware PWA ([EN](case-studies/10-privacy-aware-pwa.md) · [RU](case-studies/10-privacy-aware-pwa.ru.md)).
+Related deep dives: transactional push delivery ([EN](case-studies/09-transactional-push-delivery.md) · [RU](case-studies/09-transactional-push-delivery.ru.md)), privacy-aware PWA ([EN](case-studies/10-privacy-aware-pwa.md) · [RU](case-studies/10-privacy-aware-pwa.ru.md)), and production quality gates ([EN](case-studies/12-production-quality-gates.md) · [RU](case-studies/12-production-quality-gates.ru.md)).

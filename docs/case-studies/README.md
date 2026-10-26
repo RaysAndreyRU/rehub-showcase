@@ -35,6 +35,7 @@ flowchart LR
 9. Transactional push delivery — [EN](09-transactional-push-delivery.md) · [RU](09-transactional-push-delivery.ru.md)
 10. Privacy-aware PWA and web push — [EN](10-privacy-aware-pwa.md) · [RU](10-privacy-aware-pwa.ru.md)
 11. Brownfield maintenance and safe migrations — [EN](11-brownfield-maintenance-and-safe-migrations.md) · [RU](11-brownfield-maintenance-and-safe-migrations.ru.md)
+12. Production quality gates — [EN](12-production-quality-gates.md) · [RU](12-production-quality-gates.ru.md)
 
 ## Reading rule
 

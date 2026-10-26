@@ -77,6 +77,7 @@ Read the full [architecture overview](docs/architecture.md) and [role-oriented u
 | [Redis-backed realtime notifications](docs/case-studies/08-realtime-notifications.md) ([RU](docs/case-studies/08-realtime-notifications.ru.md)) | Authenticated sockets, per-user connections, acknowledgements, and horizontal scale. |
 | [Transactional push delivery](docs/case-studies/09-transactional-push-delivery.md) ([RU](docs/case-studies/09-transactional-push-delivery.ru.md)) | PostgreSQL outbox, BullMQ recovery, target-scoped retries, and Firebase delivery. |
 | [Privacy-aware PWA and web push](docs/case-studies/10-privacy-aware-pwa.md) ([RU](docs/case-studies/10-privacy-aware-pwa.ru.md)) | One service worker, conservative caching, explicit permission, and end-to-end deduplication. |
+| [Brownfield maintenance and safe migrations](docs/case-studies/11-brownfield-maintenance-and-safe-migrations.md) ([RU](docs/case-studies/11-brownfield-maintenance-and-safe-migrations.ru.md)) | Cross-surface compatibility, expand–migrate–contract rollouts, backfills, recovery, and explicit modernization limits. |
 
 Start with the [case study index](docs/case-studies/README.md).
 

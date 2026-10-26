@@ -65,6 +65,7 @@ Backend разделён по доменам и использует путь `c
 8. [Realtime-уведомления на Redis](docs/case-studies/08-realtime-notifications.ru.md) ([EN](docs/case-studies/08-realtime-notifications.md)).
 9. [Надёжная транзакционная push-доставка](docs/case-studies/09-transactional-push-delivery.ru.md) через outbox, BullMQ и Firebase с повтором только временно упавших устройств.
 10. [PWA и Web Push с учётом приватности](docs/case-studies/10-privacy-aware-pwa.ru.md): единый service worker, безопасная граница кэша, явное разрешение и дедупликация push.
+11. [Сопровождение brownfield-системы и безопасные миграции](docs/case-studies/11-brownfield-maintenance-and-safe-migrations.ru.md): cross-surface совместимость, expand–migrate–contract rollout, backfills, recovery и явные ограничения модернизации.
 
 Все разборы доступны на русском и английском языках; переключатель языка расположен в начале каждого документа.
 

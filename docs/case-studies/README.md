@@ -34,7 +34,14 @@ flowchart LR
 8. Redis-backed realtime notifications — [EN](08-realtime-notifications.md) · [RU](08-realtime-notifications.ru.md)
 9. Transactional push delivery — [EN](09-transactional-push-delivery.md) · [RU](09-transactional-push-delivery.ru.md)
 10. Privacy-aware PWA and web push — [EN](10-privacy-aware-pwa.md) · [RU](10-privacy-aware-pwa.ru.md)
+11. Brownfield maintenance and safe migrations — [EN](11-brownfield-maintenance-and-safe-migrations.md) · [RU](11-brownfield-maintenance-and-safe-migrations.ru.md)
 
 ## Reading rule
 
 Each case distinguishes what exists in the private project from what is simplified in the public sample. Known limitations are part of the analysis rather than hidden from it.
+
+## Related evidence and decisions
+
+- [Testing strategy](../testing.md)
+- [Separate durable audit from expiring throttle state](../decisions/001-separate-audit-and-throttle-state.md)
+- [Durable notifications with realtime transport](../decisions/002-durable-notifications-with-realtime-transport.md)
